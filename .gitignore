@@ -1,0 +1,7 @@
+build/*
+devel/*
+*~
+*.pyc
+*.o
+*.so
+*.a
