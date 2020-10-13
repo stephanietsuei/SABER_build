@@ -28,6 +28,7 @@ Build:
 ```
 cd /path/to/SABR_build
 catkin_make
+source devel/setup.bash
 ```
 
 Pull changes, including those to submodules:
