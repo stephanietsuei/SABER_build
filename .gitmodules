@@ -2,3 +2,6 @@
 	path = src/SABR
 	url = git@github.com:AlexS28/SABR.git
 	branch = integration
+[submodule "src/xivo_ros"]
+	path = src/xivo_ros
+	url = https://github.com/ucla-vision/xivo_ros
