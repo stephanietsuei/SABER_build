@@ -63,4 +63,30 @@ $$
 T_{AB} = [10.0, 24.2, 34.3]^\top \\
 R_{AB} = R^z(0.2) \cdot R^y(1.5) \cdot R^x(1.0)
 $$
-where the Euler angles are in radians. The rotation order is roll (about x-axis), then pitch (about y-axis), then yaw (about z-axis).
+where the Euler angles are in radians. The rotation order is roll (about x-axis), then pitch (about y-axis), then yaw (about z-axis). Robotics people pretty-much always use "XYZ" rotation order.
+
+(I hope I'm reading [this tutorial](http://sdformat.org/tutorials?tut=specify_pose) correctly...)
+
+
+
+## List of Coordinate Frames
+
+(Joints written as "child from parent")
+
+1. World Frame - fixed inertial frame that doesn't move. Z points up.
+2. quadrotor `base_link`
+3. quadrotor `base_stabilized` - only for low-level attitude stabilization -- IGNORE
+4. quadrotor `base_footprint` - only for low-level control -- IGNORE
+5. IMU Frame - same as `base_link`. in `hector_quadrotor_gazebo/urdf/quadrotor_sensors.gazebo.xacro`
+6. `camera_link` from `base_link`: `<origin xyz="0.25 0.0 -0.05" rpy="0 ${M_PI/4} 0"/>`
+7. `camera_depth_frame` from `camera_link`: `<origin xyz="0.0 -0.02 0.0" rpy="0 0 0" />`
+8. `camera_depth_optical_frame` from `camera_depth_frame`: `<origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />`
+9. `camera_rgb_frame` from `camera_link`: `<origin xyz="0.0 -0.0125 0.0" rpy="0 0 0" />`
+10. `camera_rgb_optical_frame` from `camera_rgb_frame`: `<origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />`
+
+
+Notes for XIVO:
+- XIVO's "body" frame is `base_link`.
+- XIVO's "spatial" frame is wherever `base_link` is initially is, will be a fixed offset from the World frame
+- The "camera" frame is `camera_depth_optical_frame` (I think the Gazebo plugin is messed up).
+- If we don't measure the direction of gravity, then `R_{sg} = W_g` can be zero rotation.
