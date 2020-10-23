@@ -15,35 +15,40 @@ g_{AB} = g_{BA}^{-1} \\
 R_{AB} = R_{BA}^{-1} \\
 T_{AB} = - R_{BA}^{-1} \cdot T_{BA}
 $$
+In the equations above, $g_{AB}$ and $g_{BA}$ are elements of the $SE(3)$ group.
 
-In the aerospace industry, $R_{AB}$ and $R_{BA}$ are called **transformation matrices**. Their transposes are called **rotation matrices**, which physically move vectors. Both appear in the aerospace and robotics literature.
 
-If $R_{AB}$ is a transformation matrix about a single axis $(X, Y, Z)$ then it takes one of the following forms.
-
+If frame $B$ is frame $A$ rotated by $\theta$ about one axis, then $R_{AB}$ takes one of the following forms:
 1. About X (roll):
    $$
     R_{AB} = R^x(\theta) = \begin{bmatrix}
-              1 & 0              & 0 \\
-              0 & \cos(\theta)   & \sin(\theta) \\
-              0 & -\sin(\theta)  & \cos(\theta)
+              1 & 0              &  0 \\
+              0 & \cos(\theta)   & -\sin(\theta) \\
+              0 & \sin(\theta)   & \cos(\theta)
               \end{bmatrix}
    $$
 2. About Y (pitch):
    $$
     R_{AB} = R^y(\theta) = \begin{bmatrix}
-              \cos(\theta) & 0   & -\sin(\theta) \\
-              0            & 1   & 0 \\
-              \sin(\theta) & 0   & \cos(\theta)
+              \cos(\theta)  & 0   & \sin(\theta) \\
+              0             & 1   & 0 \\
+              -\sin(\theta) & 0   & \cos(\theta)
               \end{bmatrix}
    $$  
 3. About Z (yaw):
     $$
     R_{AB} = R^z(\theta) = \begin{bmatrix}
-              \cos(\theta)  & \sin(\theta)   & 0 \\
-              -\sin(\theta) & \cos(\theta)   & 0 \\
-              0             & 0              & 1
+              \cos(\theta)  & -\sin(\theta)   & 0 \\
+              \sin(\theta)  &  \cos(\theta)   & 0 \\
+              0             & 0               & 1
               \end{bmatrix}
     $$
+
+For Euler angles, doing matrix multiplication like this (roll, then pitch, then yaw):
+$$
+R_{AB} = R^z(\theta_z) \cdot R^y(\theta_y) \cdot R^x(\theta_x)
+$$
+is using **intrinsic** euler angles. **Extrinsic** euler angles means intrinsic euler angles applied backwards.
 
 
 ## In ROS configuration files
@@ -57,13 +62,14 @@ In ROS configuration files, coordiante transformations are defined at "joints" t
   <origin xyz="10.0 24.2 34.3" rpy="1.0 1.5 0.2" />
 </joint>
 ```
+The `rpy` field specifies extrinsic XYZ Euler angles.
 
-Then,
+Which then means...
 $$
 T_{AB} = [10.0, 24.2, 34.3]^\top \\
-R_{AB} = R^z(0.2) \cdot R^y(1.5) \cdot R^x(1.0)
+R_{AB} = \text{EulerXYZ}(1.0, 1.5, 0.2)
 $$
-where the Euler angles are in radians. The rotation order is roll (about x-axis), then pitch (about y-axis), then yaw (about z-axis). Robotics people pretty-much always use "XYZ" rotation order.
+where the Euler angles are in radians and the convention is extrinsic. The rotation order is roll (about x-axis), then pitch (about y-axis), then yaw (about z-axis). Robotics people pretty-much always use "XYZ" rotation order.
 
 (I hope I'm reading [this tutorial](http://sdformat.org/tutorials?tut=specify_pose) correctly...)
 
