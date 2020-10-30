@@ -11,6 +11,7 @@ All development on the SABR project can and should be done after cloning this re
 2. ROS Melodic `apt install ros-melodic-desktop-full`
 3. Other ROS Packages/Metapackages (Might be incomplete):
     - `apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential`
+    - `apt install ros-melodic-hardware-interface ros-melodic-controller-interface ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control`
     - `apt install ros-melodic-slam-gmapping`
     - `apt install ros-melodic-turtlebot3`
     - `apt install ros-melodic-geographic-msgs`
