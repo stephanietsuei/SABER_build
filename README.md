@@ -1,6 +1,6 @@
-# SABR\_build
+# SABER\_build
 
-This is the catkin environment for the SABR project. It contains the [SABR repository](https://github.com/AlexS28/SABR) as a submodule and the [Hector Quadrotor](http://wiki.ros.org/hector_quadrotor) packages as subtrees.
+This is the catkin environment for the SABER project. It contains the [SABER repository](https://github.com/AlexS28/SABER) as a submodule and the [Hector Quadrotor](http://wiki.ros.org/hector_quadrotor) packages as subtrees.
 
 All development on the SABR project can and should be done after cloning this repository.
 
@@ -27,30 +27,30 @@ git clone --recursive git@github.com:stephanietsuei/SABR_build.git
 
 Build:
 ```
-cd /path/to/SABR_build
+cd /path/to/SABER_build
 catkin_make
 source devel/setup.bash
 ```
 
 Pull changes, including those to submodules:
 ```
-cd /path/to/SABR_build
+cd /path/to/SABER_build
 git pull --recurse-submodules
 ```
 
 
 ## Commiting Changes to SABR Submodule
 
-1. From the directory `src/SABR`, use git to add and commit the files:
+1. From the directory `src/SABER`, use git to add and commit the files:
 ```
-cd /path/to/SABR_build/src/SABR
+cd /path/to/SABER_build/src/SABER
 git ...
 ```
 
 2. Leave the submodule and update the reference. The reference does not need to be updated at every single commit.
 ```
-cd /path/to/SABR_build
-git add src/SABR
+cd /path/to/SABER_build
+git add src/SABER
 git commit -m "update reference"
 ```
 
@@ -62,7 +62,7 @@ Just pretend the subtree is not actually there and work as usual. :)
 
 ## Running SABR
 
-Each command in a different terminal, from `SABR_build` directory:
+Each command in a different terminal, from `SABER_build` directory:
 1. `roscore`
 2. `./play1.sh`
 3. `rosrun sabr_pkg play2.py`
@@ -71,7 +71,7 @@ Each command in a different terminal, from `SABR_build` directory:
 
 ## Running Hector Quadrotor
 
-Each command in a different terminal, from `SABR_build` directory:
+Each command in a different terminal, from `SABER_build` directory:
 1. `roscore`
 2. `./play_drone.sh`
 
