@@ -22,7 +22,7 @@ All development on the SABR project can and should be done after cloning this re
 
 Clone all repositories (including submodules)
 ```
-git clone --recursive git@github.com:stephanietsuei/SABR_build.git 
+git clone --recursive git@github.com:stephanietsuei/SABER_build.git 
 ```
 
 Build:
@@ -81,5 +81,5 @@ AttributeError: 'NoneType' object has no attribute 'buff_size'
 ```
 then you have encountered a race condition error that comes from launching too many nodes at once (or just the right number of nodes at any given time). Here is a way around it:
 1. `roscore`
-2. `rosrun gazebo_ros gazebo world_name:="src/SABR/worlds/world_drone"`
+2. `rosrun gazebo_ros gazebo world_name:="src/SABER/worlds/world_drone"`
 3. `roslaunch hector_quadrotor_gazebo/launch/spawn_quadrotor_with_kinect_SABR.launch`
