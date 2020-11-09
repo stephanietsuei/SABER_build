@@ -5,7 +5,7 @@ This work is currently under review, and use of this code is permitted but requi
 ## SABER: Data-Driven Motion Planner for Autonomously Navigating Heterogeneous Robots
 Authors: Alexander Schperberg, Stephanie Tsuei, Stefano Soatto, and Dennis Hong
 
-This is the catkin environment for the SABER project. It contains the [SABER repository](https://github.com/AlexS28/SABER) as a submodule and the [Hector Quadrotor](http://wiki.ros.org/hector_quadrotor) packages as subtrees.
+This is the catkin environment for the SABER project. It contains the [SABER repository](https://github.com/AlexS28/SABER) and [XIVO ROS](https://github.com/ucla-vision/xivo_ros) as submodules and the [Hector Quadrotor](http://wiki.ros.org/hector_quadrotor) packages as subtrees.
 
 All development on the SABER project can and should be done after cloning this repository.
 
@@ -20,7 +20,8 @@ All development on the SABER project can and should be done after cloning this r
     - `apt install ros-melodic-slam-gmapping`
     - `apt install ros-melodic-turtlebot3`
     - `apt install ros-melodic-geographic-msgs`
- 
+4. [SABER repository](https://github.com/AlexS28/SABER)
+5. [XIVO ROS wrapper](https://github.com/ucla-vision/xivo_ros) (requires installation of [XIVO](https://github.com/ucla-vision/xivo))
 
 ## Build Instructions
 
