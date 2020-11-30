@@ -1,6 +1,6 @@
-[submodule "src/SABR"]
-	path = src/SABR
-	url = https://github.com/AlexS28/SABR
 [submodule "src/xivo_ros"]
 	path = src/xivo_ros
 	url = https://github.com/ucla-vision/xivo_ros
+[submodule "src/SABER"]
+	path = src/SABER
+	url = https://github.com/AlexS28/SABER
