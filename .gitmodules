@@ -3,4 +3,4 @@
 	url = https://github.com/ucla-vision/xivo_ros
 [submodule "src/SABER"]
 	path = src/SABER
-	url = https://github.com/AlexS28/SABER
+	url = git@github.com:AlexS28/SABER
